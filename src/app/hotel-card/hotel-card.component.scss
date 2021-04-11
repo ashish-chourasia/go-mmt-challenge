@@ -1,0 +1,192 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.hotel__card__inner {
+  margin-bottom: 20px;
+  display: flex;
+  border-radius: 4px;
+  box-shadow: 0 4px 8px 0 rgb(138 107 118 / 8%);
+  cursor: pointer;
+  background: #fff;
+  position: relative;
+  flex: 1;
+  display: flex;
+  border-radius: 4px;
+  box-shadow: 0 4px 8px 0 rgb(138 107 118 / 8%);
+  border-style: solid;
+  border-width: 1px;
+  cursor: pointer;
+  .hotel__image img {
+    border-radius: 6px;
+    position: relative;
+    box-sizing: border-box;
+  }
+  .image__thumb__list {
+    display: flex;
+  }
+  .hotel__image__thumb img {
+    width: 56px;
+    height: 50px;
+    margin-right: 5px;
+    margin-top: 5px;
+    opacity: 0.8;
+  }
+
+  .hotel__details {
+    padding-left: 15px;
+    h1 {
+      margin: 0;
+      position: absolute;
+      top: 50%;
+      -ms-transform: translateY(-50%);
+      transform: translateY(-50%);
+    }
+    .hotel__title {
+      display: flex;
+    }
+  }
+}
+
+.hotel__card__container :hover {
+  border-color: #008cff;
+  background: #f4faff;
+}
+
+.tag {
+  display: inline-flex;
+  margin: 5px;
+  padding: 5px 7px 5px 5px;
+  margin-right: 5px;
+  border-radius: 4px;
+  background: #ebebeb;
+  font-size: 11px;
+  font-weight: 700;
+  color: #4a4a4a;
+  flex-shrink: 0;
+  pointer-events: none;
+}
+
+.padding-20 {
+  padding: 20px;
+}
+
+.custom {
+  flex: 1;
+  display: flex;
+  padding: 20px;
+  position: relative;
+}
+
+.price__information {
+  width: 185px;
+  flex-shrink: 0;
+  border-radius: 0 6px 6px 0;
+  //   background: #f5f5f5;
+  border-left: 1px #e6e6e6 solid;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-direction: column;
+  text-align: center;
+
+  h1,
+  h2, h3, h4 {
+    margin: auto;
+    vertical-align: middle;
+  }
+}
+
+.mmt__assured {
+  display: inline-flex;
+  padding: 4px 8px;
+  border-radius: 4px;
+  position: relative;
+  margin-right: 10px;
+  align-items: center;
+  align-self: flex-start;
+  text-transform: uppercase;
+  img {
+    width: 50%;
+  }
+}
+
+.nohover {
+  pointer-events: none;
+}
+
+.sprite {
+  background: url("../../assets/images/mmt-icon.png");
+  display: inline-block;
+  pointer-events: none;
+}
+
+.mmtIcon {
+  background-position: -615px -1048px;
+  width: 41px;
+  height: 31px;
+  zoom: 75%;
+}
+
+.rating__blank {
+  background-position: -173px -117px;
+  width: 120px;
+  height: 23px;
+}
+
+.rating__fill {
+  height: 23px;
+  background-position: -173px -93px;
+}
+
+.rating__one {
+  width: 24px;
+}
+
+.rating__two {
+  width: 48px;
+}
+.rating__three {
+  width: 72px;
+}
+.rating__four {
+  width: 96px;
+}
+.rating__five {
+  width: 120px;
+}
+
+.pl-20 {
+  padding-left: 20px;
+}
+
+.rating__tag {
+  display: inline-flex;
+  margin: 5px;
+  padding: 5px 7px 5px 5px;
+  margin-right: 5px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 700;
+  color: #fff;
+  flex-shrink: 0;
+  pointer-events: none;
+}
+
+.excellent {
+  background: #249995;
+}
+
+.very__good {
+  background: #33d18f;
+}
+
+.good {
+  background: #f5a623;
+}
+
+.average {
+  background: #eb2026;
+}

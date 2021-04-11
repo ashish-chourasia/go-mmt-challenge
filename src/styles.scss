@@ -1,0 +1,21 @@
+/* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  padding-right: 0 !important;
+}
+.modal {
+  padding-right: 0px !important;
+}
+.modal-open {
+  padding-right: 0px !important;
+}
+body:not(.modal-open) {
+  padding-right: 0px !important;
+}
+.test.modal-open {
+    overflow: auto;
+ }

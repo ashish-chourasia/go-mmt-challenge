@@ -1,0 +1,83 @@
+<div class="hotel__card__container">
+  <div class="hotel__card">
+    <div class="hotel__card__inner">
+      <div class="custom">
+        <div class="hotel__image">
+          <div>
+            <img src="{{ card.details.imageUrl }}" alt="hotelImage" />
+          </div>
+          <div class="image__thumb__list">
+            <ng-container *ngFor="let number of [1, 2, 3, 4]">
+              <div class="hotel__image__thumb">
+                <img src="{{ card.details.imageUrl }}" alt="hotelImage" />
+              </div>
+            </ng-container>
+          </div>
+        </div>
+        <div class="hotel__details">
+          <div class="title__rating">
+            <span class="mmt__assured" *ngIf="card.details.mmtAssured">
+              <img src="../../assets/images/mmtAssured.png" alt="assured" />
+            </span>
+            <div class="hotel__title">
+                <p class="h3"><strong>{{ card.details.name }}</strong></p>
+              <!-- <h3 class="font-weight-bold">{{ card.details.name }}</h3> -->
+              <!-- <span class="sprite mmtIcon"></span> -->
+              <span class="pl-20">
+                <span *ngIf="card.details.starRatedHotel" class="sprite rating__blank">
+                    <ng-container [ngSwitch]="card.details.starCategory">
+                        <span *ngSwitchCase="1" class="sprite rating__fill rating__one"></span>
+                        <span *ngSwitchCase="2" class="sprite rating__fill rating__two"></span>
+                        <span *ngSwitchCase="3" class="sprite rating__fill rating__three"></span>
+                        <span *ngSwitchCase="4" class="sprite rating__fill rating__four"></span>
+                        <span *ngSwitchCase="5" class="sprite rating__fill rating__five"></span>
+                    </ng-container>
+                </span>
+            </span>
+            </div>
+            <div class="hotel__rating">
+                <ng-container [ngSwitch]="true">
+                    <span *ngSwitchCase="card.details.userRating >=0 && card.details.userRating <= 2.7">
+                        <span class="rating__tag average">
+                            <span class="rating__bold">{{card.details.userRating}}</span>
+                            <span>/5 (Average)</span>
+                        </span>
+                    </span>
+                    <span *ngSwitchCase="card.details.userRating > 2.8 && card.details.userRating <= 3.6">
+                        <span class="rating__tag good">
+                            <span class="rating__bold">{{card.details.userRating}}</span>
+                            <span>/5 (Good)</span>
+                        </span>
+                    </span>
+                    <span *ngSwitchCase="card.details.userRating > 3.6 && card.details.userRating <= 4.4">
+                        <span class="rating__tag very__good">
+                            <span class="rating__bold">{{card.details.userRating}}</span>
+                            <span>/5 (Very Good)</span>
+                        </span>
+                    </span>
+                    <span *ngSwitchCase="card.details.userRating > 4.4">                        
+                        <span class="rating__tag excellent">
+                            <span class="rating__bold">{{card.details.userRating}}</span>
+                            <span>/5 (Excellent)</span>
+                        </span>
+                    </span>
+                </ng-container>
+            </div>
+          </div>
+          <div class="additional__information">
+            <div class="hotel__facilities">
+              <ng-container *ngFor="let item of card.details.facilities | slice:0:10;">
+                <span class="tag">{{item | uppercase}}</span>
+              </ng-container>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="price__information">
+        <h4>
+            <strong>{{ card.details.pricePerNight | currency: "INR" }}</strong>
+        </h4>
+      </div>
+    </div>
+  </div>
+</div>

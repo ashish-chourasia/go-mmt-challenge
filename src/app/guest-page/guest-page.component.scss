@@ -1,0 +1,144 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.hotel__list__container {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  width: 940px;
+  margin-left: 30%;
+}
+
+.hotel__filter__container {
+  margin-left: 15%;
+  width: 260px;
+  flex-shrink: 0;
+  align-self: flex-end;
+  position: sticky;
+  position: -webkit-sticky;
+  bottom: 20px;
+  z-index: 1;
+}
+
+.container {
+  justify-content: space-between;
+  width: 1200px;
+  margin: 0 auto;
+}
+
+.top__header {
+  transition: all 0.3s linear;
+  .heading {
+    z-index: 9;
+    justify-content: center;
+    text-align: center;
+    margin: auto;
+    vertical-align: middle;
+    h1,
+    h3 {
+      padding: 15px 0px;
+    }
+  }
+}
+
+.gradient {
+  background-image: linear-gradient(90deg, #cff0ff, #cfe5fa);
+}
+
+.sticky {
+  z-index: 99;
+  transition: all 0.3s linear;
+  background-image: linear-gradient(90deg, #cff0ff, #cfe5fa);
+  box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.08);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 9;
+  justify-content: center;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.sticky__filter {
+  z-index: 99;
+  position: fixed;
+  top: 150px;
+  transition: all 0.3s linear;
+  justify-content: center;
+  text-align: center;
+  vertical-align: middle;
+  float: left !important;
+}
+
+.checkbox__list {
+  float: left;
+  h3,
+  h4 {
+    float: left;
+  }
+  .checkbox {
+    clear: both;
+    float: left;
+    margin-bottom: 8px;
+  }
+  margin-bottom: 25px;
+}
+
+.mat-slider {
+  width: 200px;
+  float: left;
+}
+
+.floatLeft {
+  float: left;
+}
+
+.slider {
+  width: 200px;
+  clear: both;
+}
+
+.slider__caption {
+  clear: both;
+  text-align: center;
+}
+
+.home {
+  cursor: pointer;
+}
+.hotel__list__header {
+  margin: 20px 0px;
+}
+
+.modal {
+  position: absolute;
+  top: 55%;
+  left: 55%;
+  transform: translate(-50%, -50%);
+}
+
+::ng-deep .cdk-overlay-container{
+  z-index: 1200 !important;
+}
+
+.mat-form-field {
+  margin-left: 20px;
+  display: inline-block;
+}
+
+.comment {
+  width: 350px ;
+}
+
+.error {
+  color: red;
+  font-weight: 500;
+}
+
+.success {
+  color: green;
+  font-weight: 500;
+}

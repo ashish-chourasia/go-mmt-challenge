@@ -1,0 +1,104 @@
+
+<div class="top__header gradient">
+    <div class="heading animated fadeInDown" id="navbar">
+      <p class="h1"><strong>Hotels, Villas, Apartments and more..</strong></p>
+      <div style="clear: both">        
+        <h3  style="float: left" class="home" (click)="goToHome()">Home</h3>
+             
+        <h3>Showing {{filteredCount}} out of {{totalCount}} properties</h3>
+        </div>
+    </div>
+  </div>
+  <div>
+    <div class="hotel__filter__container sticky__filter">
+      <div class = "checkbox__list">
+          <h4 >Popular filters</h4>
+          <div *ngFor ="let filter of popularFilters" class="ng-container">
+              <mat-checkbox color="primary" class = "checkbox" [(ngModel)] = "filter.isChecked" (change)="onCheckBoxToggle(filter, 'popularFilter')">{{filter.displayName}}</mat-checkbox>
+          </div> 
+      </div> 
+       <div class = "checkbox__list">
+          <h4>Star Category</h4>
+          <div *ngFor ="let filter of starFilters" class="ng-container">
+              <mat-checkbox color="primary" class = "checkbox" [(ngModel)] = "filter.isChecked">{{filter.displayName}}</mat-checkbox>
+          </div>
+       </div>
+       <div class = "checkbox__list">
+          <div>
+              <h4 style="float: left;">Price per night</h4>
+              <input class="floatLeft slider" type="range" min="0" max="50000" #ranger (input)="onRangeChange(ranger.value)">    
+          </div>
+         <div class="slider__caption">
+              <p class="h5"><strong>{{priceRange | currency: "INR" }}</strong></p>
+          </div>
+      </div>
+    </div>
+    <div class="hotel__list__container" *ngIf="hotels">
+      <div class="hotel__list__header">
+        <h2>Recommended for you</h2>
+      </div>
+      <div *ngFor="let hotel of hotels; index as i">
+        <hotel-card [cardData]="hotel" (click)="onSelectHotel(hotel)" data-toggle="modal" data-target="#exampleModal"></hotel-card>
+      </div>
+      <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Booking room for {{selectedHotel?.details.name}} @{{ selectedHotel?.details.pricePerNight | currency: "INR" }}/night</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                <div class="modal-body">
+                    <div class="modal-body">
+                        <!--Form-->
+                        <!-- <form class="example-form"> -->
+                            
+                            <!--Name-->
+                            <div class="text__input">
+                                <mat-form-field class="example-full-width">
+                                    <mat-label>Name</mat-label>
+                                    <input matInput [(ngModel)]="booking.customerName" placeholder="John Doe">
+                                  </mat-form-field>
+                                  <!--Comments-->
+                                  <mat-form-field class="example-full-width comment">
+                                    <mat-label>Comments</mat-label>
+                                    <input matInput [(ngModel)]="booking.comments" placeholder="I'm travelling with my family, I have a kid">
+                                  </mat-form-field>
+                            </div>
+                              <div>
+                                <mat-form-field appearance="fill">
+                                    <mat-label>Enter booking duration</mat-label>
+                                    <mat-date-range-input [rangePicker]="picker">
+                                      <input [(ngModel)]="booking.checkIn" [min]="minDate" [max]="minDate" matStartDate placeholder="Start date">
+                                      <input [(ngModel)]="booking.checkOut"  [min]="minDate"[max]="maxDate" matEndDate  placeholder="End date" (dateChange)="endDateChange()">
+                                    </mat-date-range-input>
+                                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                    <mat-date-range-picker #picker></mat-date-range-picker>
+                                  
+                                  </mat-form-field>
+                              </div>
+                        <!-- </form> -->
+                    </div>
+                    <div class="billing">
+                        <!-- <p>Selected range: {{range.value | json}}</p> -->
+                        <span>
+                            <p class="h2">
+                                <strong>
+                                    Total Amount to be paid: {{booking?.amount | currency: "INR"}}
+                                </strong>
+                            </p>
+                        </span>
+                    </div>
+                <div class="modal-footer">
+                <p class="error font-semibold" *ngIf="validationErrorMsg">{{validationErrorMsg}}</p>
+                <p class="success font-semibold" *ngIf="validationSuccessMsg">{{validationSuccessMsg}}</p>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" (click)="formSubmit()">Confirm</button>
+                </div>
+            </div>
+            </div>
+        </div>
+        </div>
+  </div>

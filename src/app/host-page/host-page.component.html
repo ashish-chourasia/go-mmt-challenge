@@ -1,0 +1,24 @@
+<div class="container">
+  <h3 class="home" (click)="goToHome()">Home</h3>
+  <h1>Manage your properties</h1>
+</div>
+
+<div>
+  <ng-container *ngFor="let booking of bookings;index as i">
+    <div class="booking__container">
+        <p class="h4">You have a new booking request from "{{booking.customerName}}" for your property "{{booking.hotelName}}"</p>
+        <p class="h5">Dates: {{booking.checkIn | date}} - {{booking.checkOut | date}}</p>
+        <p class="h5">Amount {{booking.amount | currency: "INR"}}</p>
+        <p class="h5">Message from: {{booking.customerName}}</p>
+        <p class="h5">"{{booking.comments}}"</p>
+        <button mat-raised-button color="primary" (click)="onAcceptClick(i)">Accept</button>
+        <button mat-raised-button color="warn" (click)="onRejectClick(i)">Reject</button>
+    </div>
+  </ng-container>
+
+  <ng-container *ngIf="!bookings || bookings.length === 0">
+    <div class="booking__container">        
+      <p class="h2">You have no new bookings</p>
+    </div>
+  </ng-container>
+</div>
